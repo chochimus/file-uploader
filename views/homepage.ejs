@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="window">
+        <%- include("partials/header") %>
+        <div class="log-out-div">
+          <a href="/log-out">log-out</a>
+        </div>
+        <form action="/homepage<% if (folderId) { %>/folder/<%= folderId %><% } %>" method="GET">
+          <div class="sort-div">
+            <div class="sort-field">
+              <label for="sortBy">Sort by:</label>
+              <select name="sortBy" id="sortBy">
+                <option value="name" <% if (locals.sortBy === "name") { %> selected <% } %>>Name</option>
+                <option value="createdAt" <% if (locals.sortBy === "createdAt") { %> selected <% } %>>Date Created</option>
+              </select>
+            </div>
+            <span class="button-span"><button type="submit">Apply</button></span>
+          </div>
+      
+        </form>
+        <span class="error-msg">
+          <% if (locals.errors) { %> <% errors.forEach(error => {%> <%=error.msg %>
+          <% }) %> <% } %>
+        </span>
+        <form action="/upload<% if (folderId) { %>/folder/<%= folderId %><% } %>" method="POST" enctype="multipart/form-data">
+          <div class="upload-div">
+            <input type="file" name="file" id="file" />
+            <span class="button-span"><button type="submit">Upload</button></span>
+          </div>
+        </form>
+          <form class="create-folder-form" action="/create-folder<% if (folderId) { %>/folder/<%= folderId %><% } %>" method="POST">
+              <label for="folderName">Create new folder</label>
+              <div class="new-folder-div">
+              <input type="text" name="folderName" id="folderName" />
+              <button type="submit">New folder</button>
+            </div>
+          </form>
+          <div class="folder-path"><%- include("partials/folderPath") %></div>
+        <div class="contents"><%- include("partials/contents") %></div>
+      </div>
+      <%- include("partials/footer") %>
+    </div>
+  </body>
+</html>

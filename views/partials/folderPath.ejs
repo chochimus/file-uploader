@@ -1,0 +1,8 @@
+<% if(locals.path) { %> <% if(locals.path[0].id !=='/homepage') { %> ... / <% }
+%> <% locals.path.forEach((folder) => { %>
+<a
+  href="<%= folder.id === '/homepage' ? '/homepage' : '/homepage/folder/' + folder.id %>"
+>
+  <%= folder.name %>
+</a>
+/ <% }) %> <% } %>

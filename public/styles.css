@@ -1,0 +1,269 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --main-background: #e2e8f0;
+  --window-background: #f8fafc;
+  --window-border-radius: 0.5rem;
+  --window-border-color: 1px solid rgb(224, 224, 224);
+  --window-hover-color: rgb(224, 224, 224);
+  --window-box-shadow: 0px 0px 8px -4px rgba(0, 0, 0, 0.75);
+  --button-link-shadow: 1px 1px 6px -4px rgb(109, 109, 109);
+  --label-color: #0f172a;
+  --error-color: rgb(255, 56, 56);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+html,
+body,
+.main {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--main-background);
+  padding: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.window form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: var(--window-border-color);
+}
+
+.log-out-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.window {
+  margin: auto;
+  min-height: 50%;
+  width: 80%;
+  padding: 2rem 2rem 4rem 2rem;
+  border-radius: var(--window-border-radius);
+  background-color: var(--window-background);
+  box-shadow: var(--window-box-shadow);
+  overflow: auto;
+}
+
+.error-msg {
+  min-height: 1rem;
+  color: var(--error-color);
+}
+
+.button-span,
+.input-div {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.entry-links {
+  margin-top: 4rem;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.entry-links a {
+  text-decoration: none;
+  border: 1px solid rgb(213, 214, 216);
+  padding: 1rem 0rem;
+  text-align: center;
+  width: 100%;
+  border-radius: 0.5rem;
+  color: black;
+  box-shadow: var(--button-link-shadow);
+  transition: background-color 0.5s, transform 0.2s;
+}
+
+.entry-links a:hover {
+  background-color: rgb(213, 214, 216);
+  transform: translate(4px, 4px);
+}
+
+.sign-up-link {
+  font-size: 0.8rem;
+}
+
+.sort-div {
+  display: flex;
+  padding: 1rem 0rem;
+  gap: 1rem;
+}
+
+.upload-div {
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.new-folder-div {
+  display: flex;
+  gap: 1rem;
+}
+
+.contents ul {
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contents li {
+  padding: 0.4rem 0.8rem;
+  border: var(--window-border-color);
+}
+
+.file-header {
+  display: flex;
+  align-items: center;
+}
+
+.showFileDetails {
+  width: 100%;
+  padding: 0.6rem 0rem;
+  text-align: start;
+  background-color: var(--window-background);
+  padding-left: 1rem;
+  border: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.showFileDetails:hover {
+  background-color: var(--window-background);
+  transform: none;
+}
+
+.file-details {
+  padding-left: 1rem;
+}
+
+.file-expand {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-options {
+  display: flex;
+}
+
+.folder-options button,
+.file-options button {
+  height: 100%;
+}
+
+.folder-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.folder-options {
+  display: flex;
+}
+
+.folder-name {
+  display: block;
+  width: 100%;
+}
+
+.folder-name a {
+  display: block;
+  padding: 0.4rem 0rem 0.4rem 1rem;
+  text-decoration: none;
+}
+
+.update-form form {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.update-form input {
+  padding: 0.4rem 0rem 0.4rem 1rem;
+  font-size: 1rem;
+}
+
+.folder-container:hover {
+  background-color: #f8fafc;
+}
+
+form.create-folder-form {
+  display: flex;
+  gap: 0;
+}
+
+.create-folder-form label {
+  font-size: 1.4rem;
+}
+
+.icon-button {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.1rem;
+  box-shadow: var(--button-link-shadow);
+  border-radius: var(--window-border-radius);
+  transition: background-color 0.5s, transform 0.2s;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--label-color);
+  margin-bottom: 0.2rem;
+}
+
+input {
+  border: var(--window-border-color);
+  padding: 0.2rem 1rem;
+  border-radius: var(--window-border-radius);
+}
+
+.folder-path {
+  padding: 0.8rem 0rem;
+}
+
+button {
+  background-color: var(--window-background);
+  border: var(--window-border-color);
+  padding: 0.8rem 2rem;
+  border-radius: var(--window-border-radius);
+  box-shadow: var(--button-link-shadow);
+  transition: background-color 0.5s, transform 0.2s;
+}
+
+button:hover,
+.icon-button:hover {
+  background-color: rgb(213, 214, 216);
+  transform: translate(4px, 4px);
+}
+
+.footer {
+  text-align: center;
+}

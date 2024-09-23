@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title></title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="window">
+        <%- include("partials/header") %>
+        <form action="/log-in" method="POST">
+          <span class="error-msg">
+            <% if (locals.errors && locals.errors.error) { %><%= errors.error %>
+            <% } %>
+          </span>
+          <div class="input-div">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="username"
+              type="text"
+            />
+          </div>
+          <div class="input-div">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              placeholder="password"
+              type="password"
+            />
+          </div>
+          <span class="button-span"><button>Log in</button></span>
+          <span class="sign-up-link">
+            <p>Don't have an account?</p>
+            <a href="/sign-up">sign-up</a>
+          </span>
+        </form>
+      </div>
+      <%- include("partials/footer") %>
+    </div>
+  </body>
+</html>

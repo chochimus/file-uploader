@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title></title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="window">
+        <%-include("partials/header") %>
+        <form class="sign-up-form" action="/sign-up" method="POST">
+          <div class="input-div">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              placeholder="username"
+              type="text"
+            />
+          <span class="error-msg">
+            <ul>
+              <% if (locals.errors) { %> <% errors.forEach(error => { %> <% if
+              (error.path === 'username') { %>
+              <li><%= error.msg %></li>
+              <% } %> <% }); %> <% } %>
+            </ul>
+          </span>
+        </div>
+          <div class="input-div">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" />
+          </span>
+          <span class="error-msg">
+            <ul>
+              <% if (locals.errors) { %> <% errors.forEach(error => { %> <% if
+              (error.path === 'password') { %>
+              <li><%= error.msg %></li>
+              <% } %> <% }); %> <% } %>
+            </ul>
+          </span>
+          </div>
+          <div class="input-div">
+            <label class="confirm-password"for="confirm-password">Confirm password</label>
+            <input
+              id="confirm-password"
+              name="confirm-password"
+              type="password"
+            />
+          <span class="error-msg">
+            <ul>
+              <% if (locals.errors) { %> <% errors.forEach(error => { %> <% if
+              (error.path === 'confirm-password') { %>
+              <li><%= error.msg %></li>
+              <% } %> <% }); %> <% } %>
+            </ul>
+          </span>
+          </div>
+          <span class="button-span"><button>Sign Up</button></span>
+          <p>Already have an account?</p>
+          <a href="/log-in">Log in</a>
+        </form>
+      </div>
+      <%- include("partials/footer") %>
+    </div>
+  </body>
+</html>

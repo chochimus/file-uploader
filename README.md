@@ -8,6 +8,8 @@ The main goal of this project is to practice and reinforce my understanding of t
 
 ### Usage
 
+If you would just like to check out the final project the link is [https://file-uploader-9te3.onrender.com](https://file-uploader-9te3.onrender.com)
+
 To get everything working locally, simply:
 
 1. clone the repo with `git clone<repo-url>`, go into the newly created repo and run `npm install`
